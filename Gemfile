@@ -16,6 +16,7 @@ gem 'jquery-rails'
 
 gem 'thin'
 gem 'omniauth'
+gem 'kaminari'
 
 # Use unicorn as the web server
 # gem 'unicorn'

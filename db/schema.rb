@@ -10,7 +10,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110616184756) do
+ActiveRecord::Schema.define(:version => 20110616215052) do
+
+  create_table "articles", :force => true do |t|
+    t.string  "source"
+    t.text    "title"
+    t.text    "abstract"
+    t.string  "doi"
+    t.integer "variations_count", :default => 0
+  end
+
+  add_index "articles", ["variations_count"], :name => "index_articles_on_variations_count"
 
   create_table "users", :force => true do |t|
     t.string   "provider"
