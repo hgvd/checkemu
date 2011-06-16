@@ -1,12 +1,41 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Cemu</title>
+  <title>CEMU</title>
   <%= stylesheet_link_tag    "application" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+  <% if Rails.env == 'production' and ENV['GOOGLE_ANALYTICS_UA'].present? %>
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', '<%= ENV['GOOGLE_ANALYTICS_UA'] %>']);
+    <% if ENV['GOOGLE_ANALYTICS_DOMAIN'].present? %>_gaq.push(['_setDomainName', '<%= ENV['GOOGLE_ANALYTICS_DOMAIN'] %>']);<% end %>
+    _gaq.push(['_trackPageview']);
+    _gaq.push(['_trackPageLoadTime']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+  <% end %>
 </head>
 <body>
+<% flash.each do |name, msg| -%>
+<%= content_tag :div, msg, :id => "flash_#{name}", :class => "message" if msg.is_a?(String) %>
+<% end %>
+
+<h1>CEMU</h1>
+
+<ul id="sign_in">
+<% if current_user %>
+  <li>Welcome, <%= current_user.name %>!</li>
+  <li><%= link_to "Sign Out", signout_path %></li>
+<% else %>
+  <li><%= link_to "Sign In with Google Account", "/auth/google" %></li>
+<% end %>
+</ul>
 
 <%= yield %>
 

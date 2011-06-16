@@ -15,6 +15,7 @@ gem 'uglifier'
 gem 'jquery-rails'
 
 gem 'thin'
+gem 'omniauth'
 
 # Use unicorn as the web server
 # gem 'unicorn'
