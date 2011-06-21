@@ -1,0 +1,9 @@
+<div id="<%= dom_id(@article) %>" class="<%= dom_class(@article) %>">
+  <p class="source"><%= @article.source %></p>
+  <h2 class="title"><%= @article.title %></h2>
+  <p class="abstract"><%= @article.abstract %></p>
+  <ul class="links">
+    <li><%= link_to "PubMed", "http://www.ncbi.nlm.nih.gov/pubmed/#{@article.id}", :target => "_blank" %></li>
+    <% if @article.doi.present? %><li><%= link_to "DOI:#{@article.doi}", "http://dx.doi.org/#{@article.doi}", :target => "_blank" %></li><% end %>
+  </ul>
+</div>
