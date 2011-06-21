@@ -26,12 +26,15 @@
 <%= content_tag :div, msg, :id => "flash_#{name}", :class => "message" if msg.is_a?(String) %>
 <% end %>
 
-<h1>CEMU</h1>
+<h1><%= link_to_unless_current "CEMU", root_path %></h1>
 
+<ul>
+  <li><%= link_to "Articles", articles_path %></li>
+  <li><%= link_to "Variation Types", variation_types_path %></li>
+</ul>
 <ul id="sign_in">
 <% if current_user %>
-  <li>Welcome, <%= current_user.name %>!</li>
-  <li><%= link_to "Sign Out", signout_path %></li>
+  <li>Welcome, <%= current_user.name %>! [<%= link_to "Sign Out", signout_path %>]</li>
 <% else %>
   <li><%= link_to "Sign In with Google Account", "/auth/google" %></li>
 <% end %>

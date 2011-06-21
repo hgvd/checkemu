@@ -1,9 +1,12 @@
 <div id="<%= dom_id(@article) %>" class="<%= dom_class(@article) %>">
-  <p class="source"><%= @article.source %></p>
+  <p class="source"><%= @article.source %> [<%= link_to "PubMed", "http://www.ncbi.nlm.nih.gov/pubmed/#{@article.id}", :target => "_blank" %>]<% if @article.doi.present? %> [<%= link_to "Fulltext", "http://dx.doi.org/#{@article.doi}", :target => "_blank" %>]<% end %></p>
   <h2 class="title"><%= @article.title %></h2>
   <p class="abstract"><%= @article.abstract %></p>
-  <ul class="links">
-    <li><%= link_to "PubMed", "http://www.ncbi.nlm.nih.gov/pubmed/#{@article.id}", :target => "_blank" %></li>
-    <% if @article.doi.present? %><li><%= link_to "doi:#{@article.doi}", "http://dx.doi.org/#{@article.doi}", :target => "_blank" %></li><% end %>
+  
+  <h3>Variation Types</h3>
+  <ul class="variation_types">
+    <% @article.variation_types.each do |variation_type| %>
+    <li><%= link_to variation_type.name, variation_type %></li>
+    <% end %>
   </ul>
 </div>

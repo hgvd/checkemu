@@ -10,7 +10,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110616215052) do
+ActiveRecord::Schema.define(:version => 20110621203237) do
+
+  create_table "article_variation_types", :force => true do |t|
+    t.integer "article_id"
+    t.integer "variation_type_id"
+  end
+
+  add_index "article_variation_types", ["article_id"], :name => "index_article_variation_types_on_article_id"
+  add_index "article_variation_types", ["variation_type_id"], :name => "index_article_variation_types_on_variation_type_id"
 
   create_table "articles", :force => true do |t|
     t.string  "source"
@@ -29,5 +37,13 @@ ActiveRecord::Schema.define(:version => 20110616215052) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "variation_types", :force => true do |t|
+    t.string  "name"
+    t.integer "articles_count", :default => 0
+  end
+
+  add_index "variation_types", ["articles_count"], :name => "index_variation_types_on_articles_count"
+  add_index "variation_types", ["name"], :name => "index_variation_types_on_name"
 
 end

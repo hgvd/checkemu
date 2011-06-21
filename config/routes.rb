@@ -1,4 +1,6 @@
 Cemu::Application.routes.draw do
+  resources :variation_types
+
   resources :articles
 
   root :to => 'pages#home'
