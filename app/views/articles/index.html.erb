@@ -1,8 +1,13 @@
-<h1>Articles</h1>
+<h1>
+Articles
+[<%= link_to_unless_current 'all', articles_path %> |
+<%= link_to_unless_current 'found', found_articles_path %> |
+<%= link_to_unless_current 'missed', missed_articles_path %>]
+</h1>
 
 <ul class="articles">
 <% @articles.each do |article| %>
-  <li class="article"><%= link_to(article.title, article, :class => "title") %></li>
+  <li class="article"><%= checkmark(article.variations_count) %><%= link_to(article.title, article, :class => "title") %></li>
 <% end %>
 </ul>
 

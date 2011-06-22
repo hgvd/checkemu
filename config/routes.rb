@@ -3,7 +3,12 @@ Cemu::Application.routes.draw do
 
   resources :variation_types
 
-  resources :articles
+  resources :articles do
+    collection do
+      get 'found'
+      get 'missed'
+    end
+  end
 
   root :to => 'pages#home'
   match "/auth/:provider/callback" => "sessions#create"  

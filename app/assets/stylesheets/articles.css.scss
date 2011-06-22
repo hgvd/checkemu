@@ -10,7 +10,7 @@ body.articles {
   .source a:hover {
     color: #000;
   }
-  .variation_types, .genes {
+  .variation_types, .genes, .validation {
     padding: 0 0.5em 0.5em 0.5em;
     margin: 0.5em 0 0.5em 1em;
     background-color: #eee;
@@ -18,11 +18,20 @@ body.articles {
     -moz-border-radius: 4px;
     border-radius: 4px;
   }
+  .validation ul {
+    margin-left: 0;
+  }
+  .validation li {
+    list-style: none;
+  }
   .genes .synonyms {
     color: #666;
     font-size: 85%;
   }
   .genes .name {
     font-size: 85%;
+  }
+  .variation {
+    background-color: #fcc;
   }
 }

@@ -1,12 +1,19 @@
 <div class="yui3-g">
   <div class="yui3-u-3-4">
     <div id="<%= dom_id(@article) %>" class="<%= dom_class(@article) %>">
-      <h2 class="title"><%= @article.title %></h2>
-      <p class="abstract"><%= @article.abstract %></p>
+      <h2 class="title"><%= mark(@article.title, @article.variations) %></h2>
+      <p class="abstract"><%= mark(@article.abstract, @article.variations) %></p>
       <p class="source"><%= @article.source %> [<%= link_to "PubMed", "http://www.ncbi.nlm.nih.gov/pubmed/#{@article.id}", :target => "_blank" %>]<% if @article.doi.present? %> [<%= link_to "Fulltext", "http://dx.doi.org/#{@article.doi}", :target => "_blank" %>]<% end %></p>
     </div>
   </div>
   <div class="yui3-u-1-4">
+    <div class="validation">
+      <h3>Validation</h3>
+      <ul>
+        <li> &#x2714; &#x2718; <%= link_to "Has missed variations" %></li>
+        <li> &#x2714; &#x2718; <%= link_to "See fulltext" %></li>
+      </ul>
+    </div>
     <div class="variation_types">
       <h3>Variation Types</h3>
       <ul>

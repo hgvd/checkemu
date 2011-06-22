@@ -55,3 +55,11 @@ header h1 {
   list-style: none;
   display: inline-block;
 }
+.ok {
+  color: #080;
+  margin-right: 0.5em;
+}
+.not_ok {
+  color: #800;
+  margin-right: 0.5em;
+}

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110622024046) do
+ActiveRecord::Schema.define(:version => 20110622043646) do
 
   create_table "article_genes", :force => true do |t|
     t.integer "article_id"
@@ -65,5 +65,16 @@ ActiveRecord::Schema.define(:version => 20110622024046) do
 
   add_index "variation_types", ["articles_count"], :name => "index_variation_types_on_articles_count"
   add_index "variation_types", ["name"], :name => "index_variation_types_on_name"
+
+  create_table "variations", :force => true do |t|
+    t.integer "article_id"
+    t.string  "mutation_pattern"
+    t.string  "position_pattern"
+    t.string  "wild_type"
+    t.string  "mutant_type"
+    t.string  "position"
+  end
+
+  add_index "variations", ["article_id"], :name => "index_variations_on_article_id"
 
 end

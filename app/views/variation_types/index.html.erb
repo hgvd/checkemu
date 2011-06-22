@@ -4,11 +4,19 @@
   <tr>
     <th>Variation Type</th>
     <th>Articles</th>
+    <th>Found</th>
+    <th>% Found</th>
+    <th>Missed</th>
+    <th>% Missed</th>
   </tr>
   <% @variation_types.each do |variation_type| %>
   <tr>
     <td><%= link_to variation_type.name, variation_type %></td>
     <td class="number"><%= number_with_delimiter(variation_type.articles_count) %></td>
+    <td class="number ok"><%= variation_type.found_articles_count %></td>
+    <td class="number ok"><%= variation_type.found_percentage %>%</td>
+    <td class="number not_ok"><%= variation_type.missed_articles_count %></td>
+    <td class="number not_ok"><%= variation_type.missed_percentage %>%</td>
   </tr>
   <% end %>
 </table>

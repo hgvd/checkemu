@@ -1,6 +1,5 @@
-<ol>
-  <li>Collect PMID from PubMed search: Autistic Disorder[mesh] AND Genetic Variation[mesh]</li>
-  <li>Collect PMID from ftp://ftp.ncbi.nih.gov/gene/DATA/gene2pubmed.gz that are paired with a human gene.</li>
-  <li>Download records from PubMed for PMIDs in the intersection of 1 and 2.</li>
-  <li>Run EMU on 4.</li>
-</ol>
+<ul>
+  <li>Total <%= pluralize(Article.count, "article") %></li>
+  <li><%= pluralize(Article.found.count, "article") %> found by EMU</li>
+  <li><%= pluralize(Article.missed.count, "article") %> missed by EMU</li>
+</ul>
