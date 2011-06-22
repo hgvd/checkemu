@@ -5,3 +5,10 @@
 body.articles {
   // Place scoped styles here
 }
+
+.articles .source, .articles .source a, .articles .source a:visited {
+  color: #888;
+}
+.articles .source a:hover {
+  color: #000;
+}
