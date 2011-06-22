@@ -19,7 +19,7 @@
       <h3>Genes</h3>
       <ul>
         <% @article.genes.each do |gene| %>
-        <li><%= link_to gene.symbol, gene %> <span class="synonyms">(<%= gene.synonyms.gsub(/\|/, ", ") %>)</span><div class="name"><%= gene.name %></div></li>
+        <li><%= link_to gene.symbol, gene %> <% if gene.synonyms.present? %><span class="synonyms">(<%= gene.synonyms.gsub(/\|/, ", ") %>)</span><% end %><div class="name"><%= gene.name %></div></li>
         <% end %>
       </ul>
     </div>
