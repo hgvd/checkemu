@@ -8,6 +8,12 @@ body {
   width: 960px;
   line-height: 165%;
 }
+a, a:visited {
+  color: #000;
+}
+a:hover {
+  color: #666;
+}
 .number {
   text-align: right;
 }

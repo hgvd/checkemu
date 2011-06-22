@@ -28,8 +28,9 @@
     <h1><%= link_to_unless_current "CEMU", root_path %></h1>
 
     <ul id="navigation">
-      <li><%= link_to_unless(controller.controller_name == "articles", "Articles", articles_path) %></li>
-      <li><%= link_to_unless(controller.controller_name == "variation_types", "Variation Types", variation_types_path) %></li>
+      <li><%= link_to_unless(controller.controller_name == "articles" && controller.action_name == "index", "Articles", articles_path) %></li>
+      <li><%= link_to_unless(controller.controller_name == "genes" && controller.action_name == "index", "Genes", genes_path) %></li>
+      <li><%= link_to_unless(controller.controller_name == "variation_types" && controller.action_name == "index", "Variation Types", variation_types_path) %></li>
     </ul>
     <ul id="auth">
     <% if current_user %>

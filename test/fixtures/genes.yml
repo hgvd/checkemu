@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  symbol: MyString
+  name: MyString
+  chromosome: MyString
+  map_location: MyString
+  synonyms: MyString
+  articles_count: 1
+
+two:
+  symbol: MyString
+  name: MyString
+  chromosome: MyString
+  map_location: MyString
+  synonyms: MyString
+  articles_count: 1

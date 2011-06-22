@@ -1,0 +1,11 @@
+<h2><%= @gene.symbol %> (<%= @gene.name %>)</h2>
+
+<h3><%= pluralize(number_with_delimiter(@gene.articles_count), "Article")%></h3>
+
+<ul class="articles">
+<% @articles.each do |article| %>
+  <li class="article"><%= link_to(article.title, article, :class => "title") %></li>
+<% end %>
+</ul>
+
+<%= paginate @articles %>

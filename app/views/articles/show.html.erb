@@ -7,11 +7,21 @@
     </div>
   </div>
   <div class="yui3-u-1-4">
-    <h3>Variation Types</h3>
-    <ul class="variation_types">
-      <% @article.variation_types.each do |variation_type| %>
-      <li><%= link_to variation_type.name, variation_type %></li>
-      <% end %>
-    </ul>
+    <div class="variation_types">
+      <h3>Variation Types</h3>
+      <ul>
+        <% @article.variation_types.each do |variation_type| %>
+        <li><%= link_to variation_type.name, variation_type %></li>
+        <% end %>
+      </ul>
+    </div>
+    <div class="genes">
+      <h3>Genes</h3>
+      <ul>
+        <% @article.genes.each do |gene| %>
+        <li><%= link_to gene.symbol, gene %> <span class="synonyms">(<%= gene.synonyms.gsub(/\|/, ", ") %>)</span><div class="name"><%= gene.name %></div></li>
+        <% end %>
+      </ul>
+    </div>
   </div>
 </div>

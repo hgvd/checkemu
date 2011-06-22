@@ -1,0 +1,23 @@
+<h2>Genes</h2>
+
+<table>
+  <tr>
+    <th>Symbol</th>
+    <th>Name</th>
+    <th>Chromosome</th>
+    <th>Map Location</th>
+    <th>Articles</th>
+  </tr>
+  <% @genes.each do |gene| %>
+  <tr>
+    <td><%= link_to(gene.symbol, gene, :class => "symbol") %></td>
+    <td><%= link_to(gene.name, gene, :class => "name") %></td>
+    <td><%= gene.chromosome %></td>
+    <td><%= gene.map_location %></td>
+    <td class="number"><%= number_with_delimiter(gene.articles_count) %></td>
+    <li class="genes"></li>
+  </tr>
+  <% end %>  
+</table>
+
+<%= paginate @genes %>

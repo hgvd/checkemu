@@ -1,4 +1,6 @@
 Cemu::Application.routes.draw do
+  resources :genes
+
   resources :variation_types
 
   resources :articles

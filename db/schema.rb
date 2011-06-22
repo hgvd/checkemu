@@ -10,7 +10,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110621203237) do
+ActiveRecord::Schema.define(:version => 20110622024046) do
+
+  create_table "article_genes", :force => true do |t|
+    t.integer "article_id"
+    t.integer "gene_id"
+  end
+
+  add_index "article_genes", ["article_id"], :name => "index_article_genes_on_article_id"
+  add_index "article_genes", ["gene_id"], :name => "index_article_genes_on_gene_id"
 
   create_table "article_variation_types", :force => true do |t|
     t.integer "article_id"
@@ -29,6 +37,18 @@ ActiveRecord::Schema.define(:version => 20110621203237) do
   end
 
   add_index "articles", ["variations_count"], :name => "index_articles_on_variations_count"
+
+  create_table "genes", :force => true do |t|
+    t.string  "symbol"
+    t.string  "name"
+    t.string  "chromosome"
+    t.string  "map_location"
+    t.string  "synonyms"
+    t.integer "articles_count", :default => 0
+  end
+
+  add_index "genes", ["articles_count", "symbol"], :name => "index_genes_on_articles_count_and_symbol"
+  add_index "genes", ["symbol"], :name => "index_genes_on_symbol"
 
   create_table "users", :force => true do |t|
     t.string   "provider"

@@ -1,6 +1,6 @@
 class VariationTypesController < ApplicationController
   def index
-    @variation_types = VariationType.order(:name).page(params[:page])
+    @variation_types = VariationType.order(:name)
   end
 
   def show

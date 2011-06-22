@@ -3,12 +3,26 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 body.articles {
-  // Place scoped styles here
-}
 
-.articles .source, .articles .source a, .articles .source a:visited {
-  color: #888;
-}
-.articles .source a:hover {
-  color: #000;
+  .source, .source a, .source a:visited {
+    color: #888;
+  }
+  .source a:hover {
+    color: #000;
+  }
+  .variation_types, .genes {
+    padding: 0 0.5em 0.5em 0.5em;
+    margin: 0.5em 0 0.5em 1em;
+    background-color: #eee;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+  }
+  .genes .synonyms {
+    color: #666;
+    font-size: 85%;
+  }
+  .genes .name {
+    font-size: 85%;
+  }
 }
