@@ -12,7 +12,7 @@ module ArticlesHelper
         text.gsub!(/(#{regex})/i, "<span class=\"mark_#{i}\">\\1</span>")
       end
     end
-    #text.gsub!(/((no|lack of) (association|linkage|evidence)|unlikely|do not|don't|can not|can't)/i, '<span class="no_evidence">\1</span>')
+    #text.gsub!(/((no|lack of) (association|linkage|evidence|significant difference)|unlikely|do not|don't|can not|can't)/i, '<span class="no_evidence">\1</span>')
     text.html_safe
   end
 end
