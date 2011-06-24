@@ -6,13 +6,13 @@ module ArticlesHelper
   end
 
   def mark(text, patterns)
-    patterns.each do |p|
-      text.gsub!(/#{p.mutation_pattern}/)
-      match = []
-      match.push(p.mutation_pattern.gsub(/[\*\(\)]/, "")) if p.mutation_pattern.present?
-      match.push(p.position_pattern.gsub(/[\*\(\)]/, "")) if p.position_pattern.present?
-      text.gsub!(/(#{match.compact.join("|")})/i, '<span class="variation">\1</span>')
+    patterns.each_with_index do |pattern, i|
+      if pattern.size > 0
+        regex = pattern.flatten.reject{|p| p.blank?}.compact.uniq.sort {|a, b| b.length <=> a.length}.join("|").gsub(/([\(\)])/, '\\\\\1')
+        text.gsub!(/(#{regex})/i, "<span class=\"mark_#{i}\">\\1</span>")
+      end
     end
+    #text.gsub!(/((no|lack of) (association|linkage|evidence)|unlikely|do not|don't|can not|can't)/i, '<span class="no_evidence">\1</span>')
     text.html_safe
   end
 end

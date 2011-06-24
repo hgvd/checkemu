@@ -7,4 +7,12 @@ class Article < ActiveRecord::Base
 
   scope :found, where("variations_count > 0")
   scope :missed, where(:variations_count => 0)
+
+  def next_article
+    Article.where("id > #{id}").order("id").limit(1).first
+  end
+
+  def previous_article
+    Article.where("id < #{id}").order("id desc").limit(1).first
+  end
 end
