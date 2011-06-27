@@ -37,11 +37,11 @@
       </ul>
     </div>
     <div class="validation">
-      <h3>Validation</h3>
+      <h3>Validation <%= validated?(@article, current_user) %></h3>
       <ul>
-        <li><%= link_to "Found all variations" %></li>
-        <li><%= link_to "Missed variations" %></li>
-        <li><%= link_to "See fulltext" %></li>
+        <li><%= link_to_unless @validation.try(:verdict) == "found", "EMU found all variations", validate_article_path(@article, :verdict => "found") %></li>
+        <li><%= link_to_unless @validation.try(:verdict) == "missed", "EMU missed variations", validate_article_path(@article, :verdict => "missed") %></li>
+        <li><%= link_to_unless @validation.try(:verdict) == "fulltext", "See fulltext", validate_article_path(@article, :verdict => "fulltext") %></li>
       </ul>
     </div>
     <div class="genes">

@@ -7,7 +7,7 @@ Articles
 
 <ul class="articles">
 <% @articles.each do |article| %>
-  <li class="article"><%= checkmark(article.variations_count) %><%= link_to(article.title, article, :class => "title") %></li>
+  <li class="article"><%= checkmark(article.variations_count) %><%= link_to(article.title, article, :class => "title") %> <%= validated?(article, current_user) %></li>
 <% end %>
 </ul>
 

@@ -4,6 +4,7 @@ class Article < ActiveRecord::Base
   has_many :article_genes
   has_many :genes, :through => :article_genes
   has_many :variations
+  has_many :validations
 
   scope :found, where("variations_count > 0")
   scope :missed, where(:variations_count => 0)

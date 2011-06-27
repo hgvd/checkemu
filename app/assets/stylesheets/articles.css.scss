@@ -19,6 +19,12 @@ body.articles {
     -moz-border-radius: 4px;
     border-radius: 4px;
   }
+  .validation {
+    font-weight: bold;
+  }
+  .validation a {
+    font-weight: normal;
+  }
   .genes .synonyms {
     color: #666;
     font-size: 85%;
@@ -31,6 +37,9 @@ body.articles {
   }
   .mark_1 {
     background-color: #cfc;
+  }
+  .mark_2 {
+    background-color: #ffc;
   }
   .no_evidence {
     color: #800;

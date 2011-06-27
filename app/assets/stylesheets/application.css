@@ -63,3 +63,12 @@ header h1 {
   color: #800;
   margin-right: 0.5em;
 }
+.validated {
+  background-color: #ffc;
+  color: #888;
+  font-size: 85%;
+  padding: 0 0.5em;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+}

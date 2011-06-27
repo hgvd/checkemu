@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110622043646) do
+ActiveRecord::Schema.define(:version => 20110627174927) do
 
   create_table "article_genes", :force => true do |t|
     t.integer "article_id"
@@ -57,6 +57,19 @@ ActiveRecord::Schema.define(:version => 20110622043646) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "validations", :force => true do |t|
+    t.integer  "article_id"
+    t.integer  "user_id"
+    t.string   "verdict"
+    t.string   "note"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "validations", ["article_id"], :name => "index_validations_on_article_id"
+  add_index "validations", ["user_id", "article_id"], :name => "index_validations_on_user_id_and_article_id"
+  add_index "validations", ["verdict"], :name => "index_validations_on_verdict"
 
   create_table "variation_types", :force => true do |t|
     t.string  "name"

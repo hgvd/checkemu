@@ -8,6 +8,10 @@ Cemu::Application.routes.draw do
       get 'found'
       get 'missed'
     end
+    
+    member do
+      get 'validate'
+    end
   end
 
   root :to => 'pages#home'
