@@ -5,10 +5,20 @@ Articles
 <%= link_to_unless_current 'missed', missed_articles_path %>]
 </h1>
 
-<ul class="articles">
+<table class="articles">
+  <tr>
+    <th>Article</th>
+    <th>Variants</th>
+    <th>My Validation</th>
+    <th>Concordance</th>
+  </tr>
 <% @articles.each do |article| %>
-  <li class="article"><%= checkmark(article.variations_count) %><%= link_to(article.title, article, :class => "title") %> <%= validated?(article, current_user) %></li>
+  <tr>
+    <td class="title"><%= link_to(article.title, article) %></td>
+    <td><%= checkmark(article.variations_count) %></td>
+    <td><%= validated?(article, current_user) %></td>
+    <td><%= verdicts(article) %></td>
+  </tr>
 <% end %>
-</ul>
-
+</table>
 <%= paginate @articles %>

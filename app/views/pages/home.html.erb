@@ -1,5 +1,18 @@
 <ul>
   <li>Total <%= pluralize(Article.count, "article") %></li>
-  <li><%= pluralize(Article.found.count, "article") %> found by EMU</li>
-  <li><%= pluralize(Article.missed.count, "article") %> missed by EMU</li>
+  <ul>
+    <li><%= pluralize(Article.found.count, "article") %> found by EMU</li>
+    <li><%= pluralize(Article.missed.count, "article") %> missed by EMU</li>
+    <li><%= pluralize(Validation.count("distinct article_id"), "article") %> validated by <%= pluralize(Validation.count("distinct user_id"), "user") %></li>
+  <% if current_user %>
+    <ul>
+      <li><%= pluralize(current_user.validations.count, "article") %> validated by me</li>
+      <ul>
+        <li><%= pluralize(current_user.validations.where(:verdict => "found").count, "articles")%> as "found"</li>
+        <li><%= pluralize(current_user.validations.where(:verdict => "missed").count, "articles")%> as "missed"</li>
+        <li><%= pluralize(current_user.validations.where(:verdict => "fulltext").count, "articles")%> as "fulltext"</li>
+      </ul>
+    </ul>
+  <% end %>
+  </ul>
 </ul>

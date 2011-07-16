@@ -17,11 +17,18 @@ module ArticlesHelper
   end
 
   def validated?(article, user)
-    validated = article.validations.map{|v| v.user_id}.include?(user.try(:id)) ? true :false
+    validated = article.validations.map{|v| v.user_id}.include?(user.try(:id)) ? true : false
     if validated
-      return '<span class="validated">validated</span>'.html_safe
+      checkmark(1)
+      #return '<span class="validated">validated</span>'.html_safe
     else
       return ""
     end
+  end
+
+  def verdicts(article)
+    verdicts = article.validations.map {|v| v.verdict}.compact.uniq.size
+    verdicts > 1 ? checkmark(0) : checkmark(1)
+    #verdicts = article.validations.inject(Hash.new(0)) {|h,v| h[v.verdict] += 1; h}
   end
 end

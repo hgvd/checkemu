@@ -45,3 +45,17 @@ body.articles {
     color: #800;
   }
 }
+table.articles {
+  width: 100%;
+}
+table.articles a {
+  display: block;
+  text-decoration: none;
+  margin-right: 1em;
+}
+table.articles td.title {
+  max-width: 20em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
