@@ -1,1 +1,1 @@
-= Check EMU (CEMU)
+= Cloud EMU (CEMU)
