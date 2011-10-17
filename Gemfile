@@ -1,16 +1,22 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.1.0.rc4'
+gem 'rails', '3.1.1'
 
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
 
 gem 'mysql2'
 
-# Asset template engines
-gem 'sass-rails', "~> 3.1.0.rc"
-gem 'coffee-script'
-gem 'uglifier'
+# Gems used only for assets and not required
+# in production environments by default.
+group :assets do
+  gem 'sass-rails',   '~> 3.1.4'
+  gem 'coffee-rails', '~> 3.1.1'
+  gem 'uglifier', '>= 1.0.3'
+end
+
+# To use ActiveModel has_secure_password
+# gem 'bcrypt-ruby', '~> 3.0.0'
 
 gem 'jquery-rails'
 
@@ -18,7 +24,7 @@ gem 'thin'
 gem 'omniauth'
 gem 'kaminari'
 gem 'loadat'
-gem 'sprockets', "2.0.0.beta.10"
+#gem 'sprockets'
 
 # Use unicorn as the web server
 # gem 'unicorn'
